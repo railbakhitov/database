@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import HeaderName from './components/Header/HeaderName';
+import Navbar from './components/Navbar/Navbar';
+import Data from './components/Data/Data';
+import { Switch, Route } from 'react-router-dom';
+import About from './pages/About';
+import { connect } from 'react-redux';
+import loadTestData from './redux/actions/loadTestData';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.props.init();
+
+  }
+
+  componentWillUnmount() {
+
+  }
+
+  render() {
+    return (
+      <div className="app">
+
+        <HeaderName />
+        <Navbar />
+        <Switch>
+          <Route path={`/`} exact component={Data} />
+          <Route path={`/Print`} component={null} />
+          <Route path={`/About`} component={About} />
+        </Switch>
+
+
+      </div>
+    )
+  }
 }
 
-export default App;
+function msp(state) {
+  return {
+      'currentID': state.currentParticipant 
+  }
+}
+
+function mdp(dispatch) {
+  return {
+      init() {
+          dispatch(loadTestData())
+      }
+  }
+}
+
+export default connect(msp, mdp)(App);

@@ -1,0 +1,165 @@
+.app {
+
+  &-main {
+    color: #adadad;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+
+  
+  &-heading {
+    color: #8b8686;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
+
+  &-heading2 {
+    color: #adadad;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+  }
+
+
+  &-mt-10 {
+    margin-top: 10px;
+  }
+
+  &-mt-15 {
+    margin-top: 15px;
+  }
+
+  &-mt-20 {
+    margin-top: 20px;
+  }
+
+  &-mt-70 {
+    margin-top: 70px;
+  }
+
+  &-mt-80 {
+    margin-top: 80px;
+  }
+
+
+
+  
+  &-pl-30 {
+    padding-left: 30px;
+  }
+
+  &-pl-60 {
+    padding-left: 60px;
+  }
+
+  &-pl-btn {
+    padding-left: 710px;
+  }
+
+}
+
+.search {
+  display: block;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 1px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control {
+  display: block;
+  width: 350px;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #e8e8e8;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 50px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+  .form-control-sm {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 50px;
+  }
+
+.btn-primary{
+  background-color: white;
+  color: #495057;
+  border-color: #7f2620;
+ }
+
+.btn-primary:hover,
+.btn-primary:focus,
+
+.btn-primary:visited {
+  background-color: #7f2620;  
+  color: white;
+  border-color: #7f2620;
+}
+
+
+.btn-add{
+  background-color: #b4180d;
+  color: white;
+  border-color: #b4180d;
+  border-radius: 50px;
+  height: 30px;
+  padding: 0;
+  width: 150px;
+ }
+
+.btn-add:hover,
+.btn-add:focus,
+
+.btn-add:visited {
+  background-color: #7f2620;  
+  color: white;
+  border-color: #b4180d;
+  border-radius: 50px;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 15%, 5%, 65%, 10%, 5%;
+  grid-template-areas:  '. h h .'
+                        '. l l .'
+                        '. d dd .'
+                        '. f f .'
+                        '. . . .'
+  ;
+}
+
+.header {
+  grid-area: h;
+}
+
+.link {
+  grid-area: l;
+}
+
+.data {
+  grid-area: d;
+}
+
+.datadif {
+  grid-area: dd;
+}
+
+.footer {
+  grid-area: f;
+}
