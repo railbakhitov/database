@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import store from '../../../redux/store';
 import currentParticipant from '../../../redux/actions/currentParticipant';
 
-const findID = ( fullName, data ) => {
+const findID = (fullName, data) => {
     const lastName = fullName.split(' ').slice().shift();
     let result = null;
 
@@ -13,25 +13,25 @@ const findID = ( fullName, data ) => {
         TODO: упроситить запись снизу
     */
 
-    for ( let i = 0; i < data.length; i++ ) {
-      const item = data[i];
-      const id = Object.keys(item).slice().shift();
-      const values = Object.values(item).slice().shift();
-      if ( lastName === values.lastName ) {
-        result = id;
-        break;
-      }
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        const id = Object.keys(item).slice().shift();
+        const values = Object.values(item).slice().shift();
+        if (lastName === values.lastName) {
+            result = id;
+            break;
+        }
     }
 
     return result;
-  };
+};
 
 class Search extends React.Component {
     constructor(props) {
         super();
-        this.state = { 
-            searchText: '', 
-            id: null 
+        this.state = {
+            searchText: '',
+            id: null
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
@@ -46,6 +46,7 @@ class Search extends React.Component {
         element.setAttribute('style', 'display: none');
 
         // TODO: посмотреть как было реализовано
+        // Срабатывает с запазданием на 1 шаг
 
         const url = window.location.href;
         const currentID = url.split('id').pop();
@@ -59,6 +60,7 @@ class Search extends React.Component {
 
         let { participants, data } = this.props;
 
+        // Список участников по совпадениям поиска
         participants = participants.filter(
             participant => searchText === participant.substr(0, length)
         );
@@ -68,7 +70,7 @@ class Search extends React.Component {
         return (
             <form className="form-inline">
                 <div className="container">
-                    <input 
+                    <input
                         autoComplete="off"
                         type="text"
                         id="searchLine"
@@ -82,24 +84,32 @@ class Search extends React.Component {
                         // TODO: Заменить совпадения на жирный
 
                         const id = findID(fullName, data);
-                        element.setAttribute('style','display: block');
+
+                        element.setAttribute('style', 'display: block');
+
+                        // скрытие выпадающего списка при поиске, если клик произошел вне блока списка
+                        document.addEventListener('click', function (event) {
+                            if (!element.contains(event.target)) {
+                                element.style.display = 'none';
+                            }
+                        });
 
                         return (
                             <div key={index} className="searchText" >
-                                {/* 
-                                    TODO: Сделать весь блок ссылкой, а не только текст
-                                */}
-                                <NavLink 
+                                
+                                <NavLink
                                     to={`/id${id}`}
                                     onClick={this.handleClick}
                                     style={{ textDecoration: 'none', display: 'block', width: "245px" }}
                                 >
                                     {fullName}
                                 </NavLink>
+                                
                             </div>
                         )
                     })}
                     {(searchText === '' && element) && element.setAttribute('style', 'display: none')}
+
                 </div>
             </form>
         )

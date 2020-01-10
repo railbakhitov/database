@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../App.scss';
+import '../Data.scss';
 import formatDate from '../../../utils/formatDate';
 import Footer from '../../Footer/Footer';
 
@@ -106,13 +107,15 @@ class Data extends React.Component {
   }
 
   render() {
-    return (
-      <div className="page" style={{ paddingLeft: "15%" }}>
 
-        <div className="data app-mt-20">
+    return (
+      <div className="page">
+
+        <div className="data datapos-block1">
           <label className="app-heading">Личные данные участника</label>
 
           <input
+              autoComplete="off"
             className="app-mt-20 form-control form-control-sm"
             type="text"
             placeholder="Фамилия" 
@@ -122,6 +125,7 @@ class Data extends React.Component {
           />
 
           <input
+              autoComplete="off"
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Имя" 
@@ -132,6 +136,7 @@ class Data extends React.Component {
 
 
           <input
+              autoComplete="off"
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Отчество" 
@@ -141,6 +146,7 @@ class Data extends React.Component {
           />
 
           <input
+              autoComplete="off"
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Электронная почта" 
@@ -150,6 +156,7 @@ class Data extends React.Component {
           />
 
           <input
+              autoComplete="off"
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Телефон" 
@@ -159,6 +166,7 @@ class Data extends React.Component {
           />
 
           <input
+              autoComplete="off"
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Город" 
@@ -168,6 +176,7 @@ class Data extends React.Component {
           />
 
           <input
+              autoComplete="off"
             disabled="true"
             className="app-mt-10 form-control form-control-sm"
             type="text"
@@ -175,10 +184,11 @@ class Data extends React.Component {
 
         </div>
 
-        <div className="datadif app-mt-80">
+        <div className="datadif datapos-block2">
           <div className="app-heading2">Данные по месту деятельности</div>
 
-          <input 
+          <input
+              autoComplete="off" 
               className="app-mt-15 form-control form-control-sm" 
               type="text" 
               placeholder="Университет" 
@@ -187,14 +197,16 @@ class Data extends React.Component {
               name="university"
           />
 
-          <input 
+          <input
+              autoComplete="off" 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Институт/факультет" 
               value={ this.state.institute } onChange={ this.instituteChange } name="institute"
           />
 
-          <input 
+          <input
+              autoComplete="off" 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Кафедра" 
@@ -203,7 +215,8 @@ class Data extends React.Component {
               name="department"
           />
 
-          <input 
+          <input
+              autoComplete="off" 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Статус" 
@@ -212,7 +225,8 @@ class Data extends React.Component {
               name="status"
           />
 
-          <input 
+          <input
+              autoComplete="off" 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Должность" 

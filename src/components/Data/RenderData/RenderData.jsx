@@ -1,22 +1,18 @@
 import React from 'react';
+import '../Data.scss';
 import '../../../App.scss';
 import { connect } from 'react-redux';
 
 class RenderData extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { disabled: 'true' };
   };
-
-  handleSubmit(e) {
-    e.preventDefault();
-  }
-
 
   render() {
 
     const { data, currentID } = this.props;
+    const { disabled } = this.state;
 
     /* 
       TODO: пофиксить запись снизу
@@ -31,17 +27,16 @@ class RenderData extends React.Component {
       }
     }
 
-    console.log('render ->', render);
-
     const { dateRegistration, department, email, firstName, institute, lastName, location, middleName, position, status, telephone, university } = render;
 
     return (
       <div className="page" style={{ paddingLeft: "15%" }}>
 
-        <div className="data app-mt-20">
+        <div className="data datapos-block1">
           <label className="app-heading">Личные данные участника</label>
 
           <input
+            disabled={disabled}
             className="app-mt-20 form-control form-control-sm"
             type="text"
             placeholder="Фамилия" 
@@ -50,6 +45,7 @@ class RenderData extends React.Component {
           />
 
           <input
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Имя" 
@@ -59,6 +55,7 @@ class RenderData extends React.Component {
 
 
           <input
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Отчество" 
@@ -67,6 +64,7 @@ class RenderData extends React.Component {
           />
 
           <input
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Электронная почта" 
@@ -75,6 +73,7 @@ class RenderData extends React.Component {
           />
 
           <input
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Телефон" 
@@ -83,6 +82,7 @@ class RenderData extends React.Component {
           />
 
           <input
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             placeholder="Город" 
@@ -91,17 +91,18 @@ class RenderData extends React.Component {
           />
 
           <input
-            disabled="true"
+            disabled={disabled}
             className="app-mt-10 form-control form-control-sm"
             type="text"
             value={ dateRegistration} />
 
         </div>
 
-        <div className="datadif app-mt-80">
+        <div className="datadif datapos-block2">
           <div className="app-heading2">Данные по месту деятельности</div>
 
-          <input 
+          <input
+              disabled={disabled} 
               className="app-mt-15 form-control form-control-sm" 
               type="text" 
               placeholder="Университет" 
@@ -109,7 +110,8 @@ class RenderData extends React.Component {
               name="university"
           />
 
-          <input 
+          <input
+              disabled={disabled} 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Институт/факультет" 
@@ -117,7 +119,8 @@ class RenderData extends React.Component {
           />
               
 
-          <input 
+          <input
+              disabled={disabled} 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Кафедра" 
@@ -125,7 +128,8 @@ class RenderData extends React.Component {
               name="department"
           />
 
-          <input 
+          <input
+              disabled={disabled} 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Статус" 
@@ -133,7 +137,8 @@ class RenderData extends React.Component {
               name="status"
           />
 
-          <input 
+          <input
+              disabled={disabled} 
               className="app-mt-10 form-control form-control-sm" 
               type="text" 
               placeholder="Должность" 

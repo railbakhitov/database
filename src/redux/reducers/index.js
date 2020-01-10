@@ -37,9 +37,6 @@ function index(state = {}, action = {}) {
             return newState
         };
 
-        case 'SEARCH_PARTICIPANT':
-            return { ...state, searchParticipant: payload};
-
         case 'CURRENT_PARTICIPANT':
             return { ...state, currentParticipant: payload};
         

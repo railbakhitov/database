@@ -1,9 +1,10 @@
 import React from 'react';
+import '../../App.scss';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <div style={{ paddingLeft: "20%" }}>
+        <div className="link" style={{ position: 'absolute', margin: 'auto', left: '13%', right:'13%' }}>
             <nav className="navbar navbar-expand-lg">
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
