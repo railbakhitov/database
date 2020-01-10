@@ -51,8 +51,10 @@
     padding-left: 60px;
   }
 
-  &-pl-btn {
-    padding-left: 710px;
+  &-btn-position {
+    position: absolute;
+    top: 65%;
+    left: 68%;
   }
 
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../App.scss';
-import formatDate from '../../utils/formatDate';
-import Footer from '../Footer/Footer';
+import '../../../App.scss';
+import formatDate from '../../../utils/formatDate';
+import Footer from '../../Footer/Footer';
 
 class Data extends React.Component {
   constructor(props) {
@@ -107,7 +107,7 @@ class Data extends React.Component {
 
   render() {
     return (
-      <div className="page" style={{ paddingLeft: "170px" }}>
+      <div className="page" style={{ paddingLeft: "15%" }}>
 
         <div className="data app-mt-20">
           <label className="app-heading">Личные данные участника</label>

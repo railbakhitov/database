@@ -25,7 +25,7 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <div className="footer app-mt-70 app-pl-btn">
+            <div className="footer app-mt-70 app-btn-position">
                 <button type="button" className="btn btn-add" onClick={ this.handleClick }><small>Добавить</small></button>
             </div>
         )

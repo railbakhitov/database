@@ -9,12 +9,14 @@ const findID = ( fullName, data ) => {
     const lastName = fullName.split(' ').slice().shift();
     let result = null;
 
+    /* 
+        TODO: упроситить запись снизу
+    */
+
     for ( let i = 0; i < data.length; i++ ) {
       const item = data[i];
-      console.log(item);
       const id = Object.keys(item).slice().shift();
       const values = Object.values(item).slice().shift();
-      console.log(values);
       if ( lastName === values.lastName ) {
         result = id;
         break;
@@ -42,7 +44,13 @@ class Search extends React.Component {
     handleClick() {
         const element = document.getElementById('containerText');
         element.setAttribute('style', 'display: none');
-        //store.dispatch(currentParticipant())
+
+        // TODO: посмотреть как было реализовано
+
+        const url = window.location.href;
+        const currentID = url.split('id').pop();
+
+        store.dispatch(currentParticipant(currentID));
     }
 
     render() {
@@ -50,7 +58,6 @@ class Search extends React.Component {
         const length = searchText.length;
 
         let { participants, data } = this.props;
-        const count = participants.length;
 
         participants = participants.filter(
             participant => searchText === participant.substr(0, length)
@@ -71,21 +78,23 @@ class Search extends React.Component {
                     <div className="search"></div>
                 </div>
                 <div className="containerText" id="containerText">
-                    {searchText && participants.map( fullName => {
+                    {searchText && participants.map((fullName, index) => {
                         // TODO: Заменить совпадения на жирный
 
                         const id = findID(fullName, data);
                         element.setAttribute('style','display: block');
 
                         return (
-                            <div className="searchText" >
+                            <div key={index} className="searchText" >
                                 {/* 
                                     TODO: Сделать весь блок ссылкой, а не только текст
                                 */}
                                 <NavLink 
                                     to={`/id${id}`}
                                     onClick={this.handleClick}
-                                >{fullName}
+                                    style={{ textDecoration: 'none', display: 'block', width: "245px" }}
+                                >
+                                    {fullName}
                                 </NavLink>
                             </div>
                         )

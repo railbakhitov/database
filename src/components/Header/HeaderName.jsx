@@ -1,10 +1,11 @@
 import React from 'react';
 import Search from './Search/Search';
 import '../../App.scss';
+import { NavLink } from 'react-router-dom';
 
 const HeaderName = () => (
     <nav className="navbar navbar-light bg-light shadow p-3 mb-5 bg-white rounded">
-        <a className="navbar-brand app-pl-60" href="#">
+        <NavLink className="navbar-brand app-pl-60" to='/'>
             <table>
                 <tbody>
                     <tr>
@@ -22,7 +23,7 @@ const HeaderName = () => (
                     </tr>
                 </tbody>
             </table>
-        </a>
+        </NavLink>
 
         <Search />
 

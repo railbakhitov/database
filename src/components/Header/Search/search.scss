@@ -1,10 +1,7 @@
 .container {
   position: absolute;
   margin: auto;
-  top: 0;
-  left: 1000px;
-  right: 0;
-  bottom: 0;
+  right: 3%;
   width: 300px;
   height: 100px;
   .search {
@@ -111,12 +108,9 @@
 .containerText {
   display: none;
   position: absolute;
-  margin-top: 75px;
-  margin-left: 45px;
-  top: 0;
-  left: 1000px;
-  right: 0;
-  bottom: 0;
+  margin: auto;
+  top: 75px;
+  right: 5%;
   width: 245px;
   height: 100px;
   background: white;
